@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755785273977",
+    "project_id": "radar-neuro-divergente",
+    "storage_bucket": "radar-neuro-divergente.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755785273977:android:2aa5843f66a2543f9e3aa8",
+        "android_client_info": {
+          "package_name": "RND.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755785273977-0sh7aa9no8f4lqn4dl236ct3vn1k546k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6DJS-qLuzkJm3-B5dBEPxkoufccr8ICo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755785273977-0sh7aa9no8f4lqn4dl236ct3vn1k546k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
