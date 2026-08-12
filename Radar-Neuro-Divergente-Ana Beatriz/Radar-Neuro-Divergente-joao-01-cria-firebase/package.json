@@ -1,0 +1,21 @@
+{
+  "name": "radar-neuro-divergente",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@react-native-google-signin/google-signin": "^16.1.4",
+    "expo": "~56.0.12",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-nitro-google-signin": "^1.3.0",
+    "uuid": "^14.0.1"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "private": true
+}
