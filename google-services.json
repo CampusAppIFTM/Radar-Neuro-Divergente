@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "396326425022",
+    "project_id": "duckmaria-7a734",
+    "storage_bucket": "duckmaria-7a734.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396326425022:android:13a748c97be46974ede9ef",
+        "android_client_info": {
+          "package_name": "radar.neuro.divergente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396326425022-l4t2fs308umnh6d67vp9laoceq46u8n0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO1ZXnaEbAypX6_IQuvBq9EnQAp7fz4NU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396326425022-l4t2fs308umnh6d67vp9laoceq46u8n0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
