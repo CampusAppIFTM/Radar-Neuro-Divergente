@@ -1,18 +1,11 @@
 /**
  * src/screens/LoginScreen.js
  * ---------------------------------------------------------------------------
- * Tela de login.
- *
- * Observe o que ela NÃO faz:
- *   - não conhece o Firebase;
- *   - não recebe uma prop para "avisar" quem entrou.
- * Ela apenas dispara o login e cuida do próprio estado visual (carregando e
- * mensagem de erro). Quando o login dá certo, o observador em App.js troca a
- * tela sozinho.
+ * Tela de login com Google direcionada para a comunidade IFTM.
  * ---------------------------------------------------------------------------
  */
 import { useState } from "react";
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet, Image, SafeAreaView } from "react-native";
 import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
 
 import { entrarComGoogle, descreverErro } from "../services/autenticacao";
@@ -27,43 +20,49 @@ const LoginScreen = () => {
 
     try {
       await entrarComGoogle();
-      // Se deu certo, não fazemos nada aqui: o onAuthStateChanged assume.
-      // Se o usuário cancelou, também não fazemos nada -- ele continua na tela.
+      // Se der certo, a navegação é alterada automaticamente via observarUsuario() em App.js
     } catch (e) {
-      console.log("Falha no login:", e);
+      console.log("Falha no login com Google:", e);
       setErro(descreverErro(e));
     } finally {
-      // O finally garante que o indicador SEMPRE é desligado, tenha o login
-      // dado certo, falhado ou sido cancelado. Esquecer isto é o motivo mais
-      // comum de um botão que "trava" carregando para sempre.
       setCarregando(false);
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Minha Agenda</Text>
-      <Text style={styles.subtitulo}>Entre para continuar</Text>
-
-      {/*
-        GoogleSigninButton é o botão oficial. Além de pronto, ele atende às
-        diretrizes de marca do Google, exigidas para publicar na loja.
-        O disabled evita o erro IN_PROGRESS por toque duplo.
-      */}
-      <GoogleSigninButton
-        style={styles.botaoGoogle}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={aoPressionar}
-        disabled={carregando}
-      />
-
-      {/* Área reservada com altura fixa: evita a tela "pular" ao aparecer. */}
-      <View style={styles.areaAviso}>
-        {carregando && <ActivityIndicator />}
-        {erro && <Text style={styles.erro}>{erro}</Text>}
+    <SafeAreaView style={styles.container}>
+      {/* Cabeçalho do App */}
+      <View style={styles.header}>
+        <Image
+          source={require("../../assets/Rn.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.titulo}>Radar Neurodivergente</Text>
       </View>
-    </View>
+
+      <View style={styles.conteudo}>
+        <Text style={styles.subtitulo}>Acesso exclusivo para a comunidade IFTM</Text>
+        <Text style={styles.instrucao}>
+          Utilize o seu e-mail institucional (@iftm.edu.br ou @estudante.iftm.edu.br) para entrar.
+        </Text>
+
+        {/* Botão Oficial do Google */}
+        <GoogleSigninButton
+          style={styles.botaoGoogle}
+          size={GoogleSigninButton.Size.Wide}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={aoPressionar}
+          disabled={carregando}
+        />
+
+        {/* Área de Avisos / Erros */}
+        <View style={styles.areaAviso}>
+          {carregando && <ActivityIndicator color="#10316B" size="large" />}
+          {erro && <Text style={styles.erro}>{erro}</Text>}
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -72,31 +71,62 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#D9EDF5",
+  },
+  header: {
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
-    padding: 24,
+    paddingVertical: 20,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#B0C9D6",
+    marginTop: 20,
+  },
+  logo: {
+    width: 45,
+    height: 45,
+    marginRight: 12,
   },
   titulo: {
-    fontSize: 32,
+    fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 8,
+    color: "#10316B",
+  },
+  conteudo: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 32,
   },
   subtitulo: {
-    fontSize: 16,
-    color: "#666",
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#10316B",
+    textAlign: "center",
+    marginBottom: 8,
+  },
+  instrucao: {
+    fontSize: 14,
+    color: "#4A6572",
+    textAlign: "center",
     marginBottom: 32,
+    lineHeight: 20,
   },
   botaoGoogle: {
-    width: 240,
-    height: 48,
+    width: 250,
+    height: 52,
   },
   areaAviso: {
-    height: 48,
+    marginTop: 24,
+    minHeight: 50,
     justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 16,
   },
   erro: {
-    color: "#c62828",
+    color: "#C62828",
     textAlign: "center",
+    fontSize: 14,
+    fontWeight: "600",
   },
 });

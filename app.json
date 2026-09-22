@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "aula-auth",
-    "slug": "aula-auth",
+    "name": "Radar Neuro Divergente",
+    "slug": "radar-neuro-divergente",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -15,16 +15,20 @@
     },
     "android": {
       "googleServicesFile": "./google-services.json",
-      "package": "radar.neuro.divergente",
+      "package": "RND.com",
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
     },
-    "web": {
-    },
+    "web": {},
     "plugins": [
       "@react-native-google-signin/google-signin"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "49fe99d8-783e-4742-99c8-2c7a10591a7a"
+      }
+    }
   }
 }
