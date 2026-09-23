@@ -1,41 +1,107 @@
 {
   "project_info": {
-    "project_number": "755785273977",
-    "project_id": "radar-neuro-divergente",
-    "storage_bucket": "radar-neuro-divergente.firebasestorage.app"
+    "project_number": "47327436898",
+    "project_id": "auth-10e2e",
+    "storage_bucket": "auth-10e2e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:755785273977:android:2aa5843f66a2543f9e3aa8",
+        "mobilesdk_app_id": "1:47327436898:android:9b2c840c795ea5a97a713b",
         "android_client_info": {
-          "package_name": "RND.com"
+          "package_name": "br.edu.iftm.achadosperdidos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "755785273977-smane50j8nvt651nkb6je0bjgdj47pcg.apps.googleusercontent.com",
+          "client_id": "47327436898-llnap035eamgutb3sgdsd9o90uist8jp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "RND.com",
-            "certificate_hash": "211f559656d6b305442c689820bea5efbc436e22"
+            "package_name": "br.edu.iftm.achadosperdidos",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {
-          "client_id": "755785273977-0sh7aa9no8f4lqn4dl236ct3vn1k546k.apps.googleusercontent.com",
+          "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6DJS-qLuzkJm3-B5dBEPxkoufccr8ICo"
+          "current_key": "AIzaSyB9vna-LKGszzXVHfeeONE9JMg-_0fAHKs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "755785273977-0sh7aa9no8f4lqn4dl236ct3vn1k546k.apps.googleusercontent.com",
+              "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47327436898:android:eee126e1d28464887a713b",
+        "android_client_info": {
+          "package_name": "com.professorangoti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47327436898-ps4k4c9rjpfqa08ihrsmg1h23i3lt0r2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.professorangoti",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9vna-LKGszzXVHfeeONE9JMg-_0fAHKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47327436898:android:d0f3a6ec7d1c0c647a713b",
+        "android_client_info": {
+          "package_name": "radarneurodivergente.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9vna-LKGszzXVHfeeONE9JMg-_0fAHKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47327436898-tsrcpcg6h4bcdeg4tikh52aovs7nivdu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

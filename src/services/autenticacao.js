@@ -4,16 +4,8 @@
  * Camada de serviço: concentra TODA a conversa com o Google e com o Firebase.
  * ---------------------------------------------------------------------------
  */
-import {
-  GoogleSignin,
-  statusCodes,
-} from "@react-native-google-signin/google-signin";
-import {
-  GoogleAuthProvider,
-  signInWithCredential,
-  signOut,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { GoogleSignin, statusCodes } from "@react-native-google-signin/google-signin";
+import { GoogleAuthProvider, signInWithCredential, signOut, onAuthStateChanged } from "firebase/auth";
 
 import { auth } from "../../firebaseConfig";
 
@@ -23,10 +15,7 @@ import { auth } from "../../firebaseConfig";
 export function validarEmailIFTM(email) {
   if (!email) return false;
   const emailLower = email.trim().toLowerCase();
-  return (
-    emailLower.endsWith("@iftm.edu.br") ||
-    emailLower.endsWith("@estudante.iftm.edu.br")
-  );
+  return emailLower.endsWith("@iftm.edu.br") || emailLower.endsWith("@estudante.iftm.edu.br");
 }
 
 /**
@@ -58,26 +47,22 @@ export async function entrarComGoogle() {
     return { cancelado: true };
   }
 
+  const emailGoogle = resposta.data?.user?.email;
+
+  // Valida antes do Firebase emitir o usuário autenticado para o App.js.
+  if (!validarEmailIFTM(emailGoogle)) {
+    await sair();
+    throw new Error("Acesso Negado: Apenas contas institucionais do IFTM (@iftm.edu.br ou @estudante.iftm.edu.br) são permitidas.");
+  }
+
   const idToken = resposta.data?.idToken;
 
   if (!idToken) {
-    throw new Error(
-      "O Google não devolveu o idToken. Verifique o webClientId informado em configurarGoogleSignin()."
-    );
+    throw new Error("O Google não devolveu o idToken. Verifique o webClientId informado em configurarGoogleSignin().");
   }
 
   const credencial = GoogleAuthProvider.credential(idToken);
-  const resultadoFirebase = await signInWithCredential(auth, credencial);
-  const usuarioLogado = resultadoFirebase.user;
-
-  // VERIFICAÇÃO DE DOMÍNIO DO IFTM
-  if (!validarEmailIFTM(usuarioLogado.email)) {
-    // Se não for e-mail do IFTM, derruba a sessão do Google e do Firebase imediatamente
-    await sair();
-    throw new Error(
-      "Acesso Negado: Apenas contas institucionais do IFTM (@iftm.edu.br ou @estudante.iftm.edu.br) são permitidas."
-    );
-  }
+  await signInWithCredential(auth, credencial);
 
   return { cancelado: false };
 }
@@ -100,6 +85,10 @@ export async function sair() {
 export function descreverErro(erro) {
   if (erro?.message && erro.message.includes("Acesso Negado")) {
     return erro.message;
+  }
+
+  if (erro?.message?.includes("NETWORK_ERROR")) {
+    return "Não foi possível conectar ao Google. Verifique a internet do dispositivo e tente novamente.";
   }
 
   switch (erro?.code) {

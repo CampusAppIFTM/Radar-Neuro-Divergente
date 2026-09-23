@@ -5,14 +5,24 @@
  * ---------------------------------------------------------------------------
  */
 import { useState } from "react";
-import { View, Text, ActivityIndicator, StyleSheet, Image, SafeAreaView } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet, Image } from "react-native";
 import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
+import { PatrickHand_400Regular } from "@expo-google-fonts/patrick-hand";
 
 import { entrarComGoogle, descreverErro } from "../services/autenticacao";
 
 const LoginScreen = () => {
+  const [fontesCarregadas] = useFonts({
+    PatrickHand: PatrickHand_400Regular,
+  });
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(null);
+
+  if (!fontesCarregadas) {
+    return null;
+  }
 
   const aoPressionar = async () => {
     setErro(null);
@@ -22,8 +32,8 @@ const LoginScreen = () => {
       await entrarComGoogle();
       // Se der certo, a navegação é alterada automaticamente via observarUsuario() em App.js
     } catch (e) {
-      console.log("Falha no login com Google:", e);
-      setErro(descreverErro(e));
+      const mensagemErro = descreverErro(e);
+      setErro(mensagemErro);
     } finally {
       setCarregando(false);
     }
@@ -33,19 +43,13 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.container}>
       {/* Cabeçalho do App */}
       <View style={styles.header}>
-        <Image
-          source={require("../../assets/Rn.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <Image source={require("../assets/Rn.png")} style={styles.logo} resizeMode="contain" />
         <Text style={styles.titulo}>Radar Neurodivergente</Text>
       </View>
 
       <View style={styles.conteudo}>
         <Text style={styles.subtitulo}>Acesso exclusivo para a comunidade IFTM</Text>
-        <Text style={styles.instrucao}>
-          Utilize o seu e-mail institucional (@iftm.edu.br ou @estudante.iftm.edu.br) para entrar.
-        </Text>
+        <Text style={styles.instrucao}>Utilize o seu e-mail institucional (@iftm.edu.br ou @estudante.iftm.edu.br) para entrar.</Text>
 
         {/* Botão Oficial do Google */}
         <GoogleSigninButton
@@ -83,13 +87,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   logo: {
-    width: 45,
-    height: 45,
+    width: 95,
+    height: 95,
     marginRight: 12,
   },
   titulo: {
-    fontSize: 22,
-    fontWeight: "bold",
+    fontSize: 24,
+    fontFamily: "PatrickHand",
     color: "#10316B",
   },
   conteudo: {
@@ -113,8 +117,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   botaoGoogle: {
-    width: 250,
-    height: 52,
   },
   areaAviso: {
     marginTop: 24,

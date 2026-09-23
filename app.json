@@ -5,30 +5,21 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+   
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "googleServicesFile": "./google-services.json",
-      "package": "RND.com",
+      "package": "radarneurodivergente.com",
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      }
     },
     "web": {},
     "plugins": [
-      "@react-native-google-signin/google-signin"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "49fe99d8-783e-4742-99c8-2c7a10591a7a"
-      }
-    }
+      "@react-native-google-signin/google-signin",
+      "expo-font"
+    ]
   }
 }
