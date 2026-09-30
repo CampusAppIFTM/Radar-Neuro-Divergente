@@ -1,18 +1,34 @@
 {
-  "name": "radar-neuro-divergente",
+  "name": "radar-neurodivergente",
   "version": "1.0.0",
   "main": "index.js",
-  "dependencies": {
-    "expo": "~56.0.12",
-    "expo-status-bar": "~56.0.4",
-    "react": "19.2.3",
-    "react-native": "0.85.3"
-  },
   "scripts": {
+    
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo-google-fonts/patrick-hand": "^0.4.1",
+    "@expo/vector-icons": "^15.0.3",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-google-signin/google-signin": "^16.1.5",
+    "@react-navigation/native": "^7.4.1",
+    "@react-navigation/native-stack": "^7.19.2",
+    "expo": "~55.0.31",
+    "expo-font": "~55.0.8",
+    "expo-status-bar": "~55.0.6",
+    "firebase": "^12.19.0",
+    "react": "19.2.0",
+    "react-native": "0.83.10",
+    "react-native-gesture-handler": "~2.30.0",
+    "react-native-paper": "4.9.2",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.23.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
   },
   "private": true
 }

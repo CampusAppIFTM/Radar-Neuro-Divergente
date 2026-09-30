@@ -1,24 +1,25 @@
 {
   "expo": {
-    "name": "Radar-Neuro-Divergente",
-    "slug": "Radar-Neuro-Divergente",
+    "name": "Radar Neuro Divergente",
+    "slug": "radar-neuro-divergente",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+   
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "radarneurodivergente.com",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#ffffff"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "web": {},
+    "plugins": [
+      "@react-native-google-signin/google-signin",
+      "expo-font"
+    ]
   }
 }
