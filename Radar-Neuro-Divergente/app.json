@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Radar Neuro Divergente",
+    "slug": "radar-neuro-divergente",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+   
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "radarneurodivergente.com",
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {},
+    "plugins": [
+      "@react-native-google-signin/google-signin",
+      "expo-font"
+    ]
+  }
+}
